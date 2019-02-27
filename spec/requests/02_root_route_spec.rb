@@ -1,3 +1,4 @@
+require "rails_helper"
 
 RSpec.describe "GET /ratingQuestions" do
   context "its getting all the results" do

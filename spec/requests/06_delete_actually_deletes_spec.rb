@@ -1,3 +1,4 @@
+require "rails_helper"
 
 RSpec.describe "DELETE /ratingQuestions/:id" do
   context "with an existing question" do

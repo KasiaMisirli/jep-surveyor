@@ -1,3 +1,4 @@
+require "rails_helper"
 
 RSpec.describe "PATCH /ratingQuestions/:id" do
   context "when the question exists" do

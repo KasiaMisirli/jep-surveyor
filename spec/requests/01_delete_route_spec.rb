@@ -1,5 +1,6 @@
-
-RSpec.describe "DELETE /ratingQuestions/:id" do
+require "rails_helper"
+R
+Spec.describe "DELETE /ratingQuestions/:id" do
   context "with an existing question" do
     it "returns a 204 No Content" do
       post "/ratingQuestions", { title: "Hello World" }.to_json

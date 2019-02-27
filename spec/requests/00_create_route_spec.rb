@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe "POST /ratingQuestions" do
   let(:new_title) { "Hello World" }
