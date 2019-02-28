@@ -1,33 +1,31 @@
 require "rails_helper"
 
-RSpec.describe "POST /ratingQuestions" do
-  let(:new_title) { "Hello World" }
-  let(:new_tag) { "new tag" }
-
+RSpec.describe "POST /rating_questions" do
   context "when the request has a body" do
-    it "returns the new document" do
-      post "/ratingQuestions", { title: new_title, tag: new_tag }.to_json
-      question = JSON.parse(last_response.body)
-      expect(last_response.status).to eq(201)
+  
+  it "returns the new document" do
+    post "/rating_questions.json", params: {  rating_question: { title: "new title", tag: "tag name" }}
+      expect(response.status).to eq(201)
+      question = JSON.parse(response.body)
       expect(question.is_a?(Hash)).to eq(true)
       expect(question.key?("id")).to eq(true)
-      expect(question["title"]).to eq(new_title)
-      expect(question["tag"]).to eq(new_tag)
+      expect(question["title"]).to eq("new title")
+      expect(question["tag"]).to eq("tag name")
     end
   end
 
   context "when the request has no body" do
     it "returns a 400 Bad Request" do
-      post "/ratingQuestions"
-      expect(last_response.status).to eq(400)
+      post "/rating_questions.json"
+      expect(response.status).to eq(400)
     end
   end
 
   context "when the request has a blank title" do
     it "returns a 422 Invalid Resource" do
-      post "/ratingQuestions", { title: "" }.to_json
-      expect(last_response.status).to eq(422)
-      error = JSON.parse(last_response.body)
+      post "/rating_questions.json", params: { rating_question: { title: ""} }
+      expect(response.status).to eq(422)
+      error = JSON.parse(response.body)
       expect(error).to eq({"errors"=>{"title"=>["can't be blank"]}})
     end
   end
