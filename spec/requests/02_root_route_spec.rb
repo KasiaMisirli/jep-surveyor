@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "GET /ratingQuestions" do
-before do
-  post "/rating_questions.json", params: { rating_question: { title: "Hello World"} }
-  post "/rating_questions.json", params: { rating_question: { title: "Hello Mars"} }
+let!(:question) do
+  RatingQuestion.create!(title: "Hello World")
+  RatingQuestion.create!(title: "Hello Mars")
 end
 
   context "its getting all the results" do
