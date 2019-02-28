@@ -7,8 +7,9 @@ RSpec.describe "GET /ratingQuestions/:id" do
     end
 
     it "returns a 200 OK" do
-      get "/rating_questions/#{question.id}"
+      get "/rating_questions/#{question.id}.json"
       expect(response.status).to eq(200)
+      
       new_body = JSON.parse(response.body)
       expect(new_body.is_a?(Hash)).to eq(true)
     end

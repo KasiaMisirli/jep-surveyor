@@ -1,7 +1,9 @@
 <div class="flash-notice"><%= flash[:notice] %></div>
-<%= link_to "New Question", new_rating_question_path %>
+<h3><%= link_to "New Question", new_rating_question_path %></h3>
 <div class='questions'>
   <% @rating_questions.each do |question| %>
-    <%= question.title %>
+    <h4><%= question.title %></h4>
+    <h4><%= link_to "Show", rating_question_path(question) %></h4>
   <% end %>
 </div>
+

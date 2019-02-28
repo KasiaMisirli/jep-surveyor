@@ -6,7 +6,7 @@ RSpec.describe "PATCH /ratingQuestions/:id" do
       RatingQuestion.create!(title: "Hello World!", tag: "World")
     end
     it "returns a 200 OK" do
-      patch "/rating_questions/#{question.id}", params: { rating_question: { tag: "Mars" } }
+      patch "/rating_questions/#{question.id}.json", params: { rating_question: { tag: "Mars" } }
       new_body = JSON.parse(response.body)
       expect(response.status).to eq(200)
       expect(new_body.is_a?(Hash)).to eq(true)
