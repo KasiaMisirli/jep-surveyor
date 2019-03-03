@@ -1,0 +1,18 @@
+<div class="form">
+  <div class="flash-notice"><%= flash[:notice] %>
+  </div>
+  <h4 class="new_question"><%= link_to "New Question", new_rating_question_path %></h4>
+  <div class='questions'>
+    <% @rating_questions.each do |question| %>
+      <div class="single">
+          <h4><%= question.title %></h4>
+          <h4><%= question.tag %></h4>
+          <h4><%= link_to "Show", rating_question_path(question) %></h4>
+          <h4><%= link_to "Edit", edit_rating_question_path(question) %></h4>
+          <h4><%= link_to "Delete", rating_question_path(question), method: 'DELETE' %></h4>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

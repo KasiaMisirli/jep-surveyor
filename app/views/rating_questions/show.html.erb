@@ -1,0 +1,12 @@
+
+<div class="form">
+  <div class="flash-notice">
+    <p><%= flash[:notice] %></p>
+  </div>
+  <h1 value="Single Question:">Single Question:</h1>
+  <%= link_to 'Back', rating_questions_path %>
+  <div class='questions single'>
+    <h4><%= @rating_question.title %></h4>
+    <h4><%= @rating_question.tag %></h4>
+  </div>
+</div>
