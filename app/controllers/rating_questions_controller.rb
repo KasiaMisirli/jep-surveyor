@@ -21,19 +21,43 @@ class RatingQuestionsController < ApplicationController
    end
     @rating_question = RatingQuestion.create(question_params)
     if @rating_question.save
-      render :show, status: 201
+      respond_to do |format|
+        format.html { redirect_to "/rating_questions", notice: "Your question has been created." }
+        format.json { render :show, status: 201 }
+      end
     else
-      render json: {"errors"=>{"title"=>["can't be blank"]}}, status: 422
+      respond_to do |format|
+        errors = {"errors" => @rating_question.errors.messages}
+        format.html { redirect_to "/rating_questions/new", notice: "Must have a title" }
+        format.json { render json: errors, status: 422 }
+      end
     end
   end
 
   def destroy
+    @rating_question = RatingQuestion.find(params[:id])
     @rating_question.destroy
+    redirect_to "/rating_questions"
+    return 204
+  end
+
+  def edit
+    @rating_question = RatingQuestion.find(params[:id])
   end
 
   def update
-    @rating_question.update(question_params)
-    render :show
+    if @rating_question.update(question_params)
+      respond_to do |format|
+        format.html { redirect_to "/rating_questions", notice: "Your question has been updated." }
+        format.json { render :show, status: 200 }
+      end
+    else
+      respond_to do |format|
+        errors = {"errors" => @rating_question.errors.messages}
+        format.html { redirect_to "/rating_questions/edit", notice: "Must have a title" }
+        format.json { render json: errors, status: 422 }
+      end
+    end
   end
 
   def set_rating_question

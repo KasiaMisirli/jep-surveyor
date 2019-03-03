@@ -1,3 +1,31 @@
 // Place all the styles related to the rating_questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.new_question {
+  text-align: center;
+  color: rgb(223, 198, 131);
+  font-size: 20px;
+}
+.title {
+  text-align: center;
+  color: rgb(250, 244, 228);
+  font-size: 40px;
+}
+.form  {
+  text-align: center;
+}
+.single {
+  background-color: rgb(107, 92, 53);
+  color: white;
+  border: 1px solid white;
+  border-radius: 30px;
+  margin: 10px 150px 10px 150px;
+}
+.back {
+  background-color: rgb(209, 177, 96);
+}
+.notice {
+  color: rgb(184, 76, 76);
+  font-size: 30px;
+  margin: 10px;
+}
