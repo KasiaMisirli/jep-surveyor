@@ -10,13 +10,10 @@ class RatingQuestionsController < ApplicationController
   def new
     @rating_question = RatingQuestion.new
   end
-  
- 
+
+
 
   def create
-  #  if request.body.size.zero?
-  #   return render json: {}, status: 400
-  #  end
     @rating_question = RatingQuestion.create(question_params)
     if @rating_question.save
       respond_to do |format|
@@ -35,8 +32,10 @@ class RatingQuestionsController < ApplicationController
   def destroy
     @rating_question = RatingQuestion.find(params[:id])
     @rating_question.destroy
-    # redirect_to "/rating_questions"
-    return 204
+    respond_to do |format|
+      format.html { redirect_to "/rating_questions" }
+      format.json { head 204 }
+    end
   end
 
   def update
@@ -62,7 +61,7 @@ class RatingQuestionsController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def question_params
     params.require(:rating_question).permit(:title, :tag)

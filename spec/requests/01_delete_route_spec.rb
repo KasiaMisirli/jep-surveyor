@@ -7,7 +7,7 @@ RSpec.describe "DELETE /ratingQuestions/:id" do
     end
 
     it "returns a 204 No Content" do
-      delete "/rating_questions/#{question.id}"
+      delete "/rating_questions/#{question.id}.json"
       expect(response.status).to eq(204)
       expect(response.body.to_s).to eq('')
     end

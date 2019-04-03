@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "POST /rating_questions" do
   context "when the request has a body" do
-  
+
   it "returns the new document" do
     post "/rating_questions.json", params: {  rating_question: { title: "new title", tag: "tag name" }}
       expect(response.status).to eq(201)
@@ -16,8 +16,9 @@ RSpec.describe "POST /rating_questions" do
 
   context "when the request has no body" do
     it "returns a 400 Bad Request" do
-      post "/rating_questions.json"
-      expect(response.status).to eq(400)
+      expect do
+        post "/rating_questions.json", params: {  rating_question: {  }}
+      end.to raise_error(ActionController::ParameterMissing)
     end
   end
 

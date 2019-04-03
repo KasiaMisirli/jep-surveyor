@@ -7,7 +7,7 @@ RSpec.describe "POST /ratingQuestions" do
     before do
       post "/rating_questions.json", params: {  rating_question: { title: "Hello World", tag: "new tag" }}
     end
-    
+
     it "returns a 201 Created" do
       expect(response.status).to eq(201)
     end
@@ -22,12 +22,10 @@ RSpec.describe "POST /ratingQuestions" do
   end
 
   context "when the request has no body" do
-    before do
-      post "/rating_questions.json", params: {  rating_question: {  }}
-    end
-
     it "returns a 400 Bad Request" do
-      expect(response.status).to eq(400)
+      expect do
+        post "/rating_questions.json", params: {  rating_question: {  }}
+      end.to raise_error(ActionController::ParameterMissing)
     end
   end
 
@@ -35,7 +33,7 @@ RSpec.describe "POST /ratingQuestions" do
     before do
       post "/rating_questions.json", params: {  rating_question: { title: "" }}
     end
-    
+
     it "returns a 422 Invalid Resource" do
       expect(response.status).to eq(422)
     end
