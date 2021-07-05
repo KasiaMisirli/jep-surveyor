@@ -1,0 +1,31 @@
+.formStyling {
+  // font: 12pt "Comic Sans MS";
+  background-color: #a39a9a;
+  // color: rgb(221, 176, 176);
+  // border: 5px dotted rgb(0, 0, 0);
+  // border-radius: 10px;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+.options {
+  border: 1px solid rgb(91, 48, 190);
+  background: rgb(115, 73, 182);
+  border-radius: 4px;
+  color: white;
+}
+.formTitle {
+  color: white;
+  // background: rgb(200, 188, 219);
+  font-size: 2em;
+}
+.inputButtonStyling {
+  width: 6em;
+  // display: inline-block;
+  height: 6em;
+  margin: 1em;
+}
+.inputFieldStyling {
+  width: 60%;
+  height: 3em;
+  margin: 1em;
+}

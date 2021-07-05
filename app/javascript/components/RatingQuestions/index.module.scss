@@ -1,0 +1,37 @@
+.listOfQuestions {
+  background: #89023e;
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.listOfQuestionsLink {
+  // border: 1px solid rgb(91, 48, 190);
+  // background: rgb(115, 73, 182);
+  border-radius: 25px;
+  color: white;
+  margin: 3em 0;
+  font-size: 2em;
+}
+.mainTitle {
+  background: #d7cdcc;
+  border-radius: 4px;
+  color: #89023e;
+  font-size: 3em;
+  margin-top: 100px;
+}
+.mainBody {
+  text-align: center;
+}
+body {
+  margin: 0;
+  background-color: #8acdea;
+  border: 5px #89023e solid;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.eachQuestion {
+  background-color: red;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
